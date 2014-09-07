@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Arnoldclark Webapp</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_tag do %>
+  $(document).ready(function() {
+    window.$M = new (ArnoldClark.<%= params[:controller].capitalize %> || ArnoldClark.Base)();
+    if (typeof $M.<%= params[:action] %> === 'function') {
+      return $M.<%= params[:action] %>.call();
+    }
+  });
+  <% end %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
