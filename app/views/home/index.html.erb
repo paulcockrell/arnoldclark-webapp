@@ -1,26 +1,13 @@
 <form data-bind="submit: loadImages">
-  <div class="row">
-    <div class="col-sm-4">
-      <label name="registration_label" for="registration">Registration number</label>
-      <input data-bind="value: registration" id="registration" />
-    </div>
+  <div class="form-group">
+    <label for="registration">Registration number</label>
+    <input data-bind="value: registration" id="registration" class="form-control" />
   </div>
-  <div class="row">
-    <div class="col-sm-4">
-      <label name="stock_reference_label" for="stock_reference">Stock reference number</label>
-      <input data-bind="value: stock_reference" id="stock_reference" />
-    </div>
+  <div class="form-group">
+    <label for="stock_reference">Stock reference number</label>
+    <input data-bind="value: stock_reference" id="stock_reference" class="form-control" />
   </div>
-  <div class="row">
-    <div class="col-sm-4">
+  <div class="form-group">
     <button type="submit" value="submit" class="btn btn-primary">Load</button>
-    </div>
   </div>
 </form>
-<div class="imageGallery">
-  <ul data-bind="foreach: images">
-      <li data-bind="if: present">
-          <img data-bind="attr: {src: url}" />
-      </li> 
-  </ul>
-</div>

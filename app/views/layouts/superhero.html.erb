@@ -42,12 +42,10 @@
         <p>The Arnold Clark Image Loadertron 2000 is a state of the art hyperbolic ruby application set. It is so overengineered the Victorians would be impressed.</p>
       </div>
 
-      <p>
-        Loading...
-      </p>
-
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"><span class="sr-only">60% Complete</span></div>
+      <div data-bind="if: status">
+        <div class="alert" data-bind="css: statusColor()">
+          <span data-bind="text: status"></span>  
+        </div>
       </div>
 
       <div class="row">
@@ -64,9 +62,18 @@
         <div class="col-sm-6">
           <div class="panel panel-warning">
             <div class="panel-heading">
-              <h3 class="panel-title">Image gallery</h3>
+              <h3 class="panel-title">Image gallery (click thumbnail to load main image)</h3>
             </div>
             <div class="panel-body">
+              <div class="imageGallery">
+                <div class="row" data-bind="foreach: images">
+                  <div class="imagePlaceholder" data-bind="if: (present && thumbnail())">
+                    <a data-bind="attr: {href: mainUrl()}" data-toggle="lightbox" data-title="a car">
+                      <img data-bind="attr: {src: url}" class="img-responsive">
+                    </a>
+                  </div>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
