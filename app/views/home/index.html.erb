@@ -10,7 +10,7 @@
 </form>
 <div class="imageGallery">
   <ul data-bind="foreach: images">
-      <li>
+      <li data-bind="if: present">
           <img data-bind="attr: {src: url}" />
       </li> 
   </ul>

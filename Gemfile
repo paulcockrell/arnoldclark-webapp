@@ -25,3 +25,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'knockoutjs-rails'
+
+# twitter bootstrap css & javascript toolkit
+gem 'twitter-bootswatch-rails', '~> 3.2.0'
+
+# twitter bootstrap helpers gem, e.g., alerts etc...
+gem 'twitter-bootswatch-rails-helpers'

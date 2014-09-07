@@ -2,6 +2,7 @@ window.ArnoldClark ||= {}
 
 class ArnoldClark.ImageModel
   constructor: (data) ->
+    @present = data.present
     @url = data.url
 
 class ArnoldClark.ImageManagerModel
