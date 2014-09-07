@@ -1,10 +1,10 @@
 <p>
-  Hello muther fucker
+  Arnold Clark image loader 2000 (tm)
 </p>
-<form method="get" action="http://localhost:3001/api/v1/images">
+<form data-bind="submit: loadImages">
   <label name="registration_label" for="registration">Registration number</label>
-  <input id="registration" name="registration" />
+  <input data-bind="value: registration" id="registration" />
   <label name="stock_reference_label" for="stock_reference">Stock reference number</label>
-  <input id="stock_reference" name="stock_reference" />
+  <input data-bind="value: stock_reference" id="stock_reference" />
   <input type="submit" value="submit" />
 </form>
