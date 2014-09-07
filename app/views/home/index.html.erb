@@ -1,12 +1,21 @@
-<p>
-  Arnold Clark image loader 2000 (tm)
-</p>
 <form data-bind="submit: loadImages">
-  <label name="registration_label" for="registration">Registration number</label>
-  <input data-bind="value: registration" id="registration" />
-  <label name="stock_reference_label" for="stock_reference">Stock reference number</label>
-  <input data-bind="value: stock_reference" id="stock_reference" />
-  <input type="submit" value="submit" />
+  <div class="row">
+    <div class="col-sm-4">
+      <label name="registration_label" for="registration">Registration number</label>
+      <input data-bind="value: registration" id="registration" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <label name="stock_reference_label" for="stock_reference">Stock reference number</label>
+      <input data-bind="value: stock_reference" id="stock_reference" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+    <button type="submit" value="submit" class="btn btn-primary">Load</button>
+    </div>
+  </div>
 </form>
 <div class="imageGallery">
   <ul data-bind="foreach: images">
