@@ -1,6 +1,10 @@
 window.ArnoldClark ||= {}
 
 class ArnoldClark.ImageModel
+  constructor: (data) ->
+    @url = data.url
+
+class ArnoldClark.ImageManagerModel
   IMAGE_API_URL: "http://localhost:3001/api/v1/images"
   
   constructor: ->
@@ -12,16 +16,19 @@ class ArnoldClark.ImageModel
     @images.push image
 
   addImages: (images) ->
-    @addImage image for image in images
+    for image in images
+      @addImage new ArnoldClark.ImageModel(image)
 
-  loadImages: (form_element) ->
+  loadImages: (form_element) =>
+    @clearImages()
     form_data = { registration: @registration(), stock_reference: @stock_reference() }
-    $.getJSON @IMAGE_API_URL, form_data, (data) ->
-      if data.success
-        images = data #images = JSON.parse(data)
-        console.log images
-      else
-        # XXX display some error
+
+    $.getJSON @IMAGE_API_URL, form_data, (data) =>(
+      @addImages data.images
+    )
+
+  clearImages: ->
+    @images []
 
 class ArnoldClark.Home extends ArnoldClark.Base
   constructor: ->
@@ -29,6 +36,4 @@ class ArnoldClark.Home extends ArnoldClark.Base
     this
 
   index:() ->
-    image_model = new ArnoldClark.ImageModel
-    ko.applyBindings(image_model)
-
+    ko.applyBindings new ArnoldClark.ImageManagerModel
