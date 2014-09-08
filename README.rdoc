@@ -7,12 +7,14 @@ This is the main web application in our app stack. This is what the end user int
 ==== Install and run
 
 1. Install Ruby 2.1.0 and bundle gem
-2. a. clone this repo
-  b. bundle
-  c. rails s -p 3000 # this port number is vital
-3. a. clone web api application
-  b. bundle
-  c. rails-api s -p 3001 # this port number is vital
+2. Install webapp and run
+  1. git clone https://github.com/paulcockrell/arnoldclark-webapp.git
+  2. bundle
+  3. bundle exec rails s -p 3000 # this port number is vital
+3. Install api app and run
+  1. git clone https://github.com/paulcockrell/arnoldclark-api.git
+  2. bundle
+  3. bundle exec rails-api s -p 3001 # this port number is vital
 4. Visit http://localhost:3000
 5. Enter registration and stock reference and click load button, you will get a response after a short while.
 
@@ -22,4 +24,4 @@ You must have the API app running as we do browser tests that call out to it.
 
 Also there is a currently known registration and stock reference hardcoded into the test, if that is no longer valid then the tests (or one) will fail.
 
-1. rspec -f documentation
+1. bundle exec rspec -f documentation
