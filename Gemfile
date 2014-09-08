@@ -37,7 +37,6 @@ gem 'twitter-bootswatch-rails-helpers'
 # Testing
 group :development, :test do
   gem 'minitest'
-  gem 'rmagick'
   gem 'rspec-rails'
   gem 'watir-rails'
   gem 'page-object'
