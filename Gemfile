@@ -33,3 +33,16 @@ gem 'twitter-bootswatch-rails', '~> 3.2.0'
 
 # twitter bootstrap helpers gem, e.g., alerts etc...
 gem 'twitter-bootswatch-rails-helpers'
+
+# Testing
+group :development, :test do
+  gem 'minitest'
+  gem 'rmagick'
+  gem 'rspec-rails'
+  gem 'watir-rails'
+  gem 'page-object'
+  gem 'headless'
+  gem 'data_magic'
+  gem 'require_all'
+  gem 'rspec-expectations'
+end

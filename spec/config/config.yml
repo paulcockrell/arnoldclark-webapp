@@ -1,0 +1,16 @@
+development:
+  urls:
+    base: 'http://metlife.model-office.evogi.com'
+staging:
+  urls:
+    base: 'http://metlife.model-office.evogi.com'
+common:
+  urls:
+    admin:
+      home: '/'
+      sign_in: 'evogi_admins/sign_in'
+      dashboard: 'admin/dashboard'
+      users: 'admin/users'
+    user:
+      home: 'home'
+      my_profile: 'profiles/index'
