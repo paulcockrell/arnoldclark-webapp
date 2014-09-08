@@ -7,9 +7,9 @@ class IndexPage
   div :jumbotron, :class => "jumbotron"
   div :entry_form, :class => "entry-form"
   div :gallery, :class => "image-gallery"
-  # text_field :email, :id    => "user_email"
-  # text_field :password, :id => "user_password"
-  # button :login_btn, :name  => "commit"
+  text_field :registration, :id    => "registration"
+  text_field :stock_reference, :id => "stock_reference"
+  button :submit, :name  => "submit"
   # form :login_form, :class     => "login-form"
   # div :footer, :class => "footer"
   # div :footnote, :class => "footnote"
@@ -17,7 +17,7 @@ class IndexPage
   def search(registration, stock_reference)
     self.registration = registration
     self.stock_reference = stock_reference
-    self.login_btn_element.click
+    self.submit.click
   end
 
   def render_successfull?

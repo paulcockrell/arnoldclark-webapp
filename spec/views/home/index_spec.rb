@@ -13,14 +13,14 @@ describe "Interact with Arnold Clark Image findertron 2000" do
       end
     end
 
-    # context "sign in to metlife with invalid user account" do
-    #   it "should display a invalid email or password message to the user" do
-    #     visit(MetLife::User::SignInPage) do |page|
-    #       page.login "@#{user.email}", user.password
-    #       expect(page.text).to include "Invalid email or password"
-    #     end
-    #   end
-    # end
+    context "locate car images with valid details" do
+      it "should display some images to the user" do
+        visit(IndexPage) do |page|
+          page.search "SK61ZWG", "ARNBCF-U-18233"
+          expect(page.text).to include "Loaded"
+        end
+      end
+    end
 
     # context "sign in to metlife with valid user account" do
     #   it "should display a welcome message to the user" do
