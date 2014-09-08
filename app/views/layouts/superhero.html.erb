@@ -44,12 +44,12 @@
 
       <div data-bind="if: status">
         <div class="alert" data-bind="css: statusColor()">
-          <span data-bind="text: status"></span>  
+          <span data-bind="text: status"></span>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-12">
           <div class="panel panel-warning">
             <div class="panel-heading">
               <h3 class="panel-title">Entry form</h3>
@@ -59,20 +59,94 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-6">
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
           <div class="panel panel-warning">
             <div class="panel-heading">
-              <h3 class="panel-title">Image gallery (click thumbnail to load main image)</h3>
+              <h3 class="panel-title">Image gallery</h3>
             </div>
             <div class="panel-body">
               <div class="imageGallery">
-                <div class="row" data-bind="foreach: images">
-                  <div class="imagePlaceholder" data-bind="if: (present && thumbnail())">
-                    <a data-bind="attr: {href: mainUrl()}" data-toggle="lightbox" data-title="a car">
+                <div data-bind="foreach: images">
+                  <div class="row" data-bind="if: present">
+                    <div class="imagePlaceholder col-sm-6" >
                       <img data-bind="attr: {src: url}" class="img-responsive">
-                    </a>
+                    </div>
+                    <div class="imageDataPlaceholder col-sm-6">
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th>
+                              Item
+                            </th>
+                            <th>
+                              Value
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <span>Camera angle</span>
+                            </td>
+                            <td>
+                              <span data-bind="text: camera_angle"></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <span>Image size</span>
+                            </td>
+                            <td>
+                              <span data-bind="text: image_size"></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <span>Obfuscated key</span>
+                            </td>
+                            <td>
+                              <span data-bind="text: obfuscated_key"></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <span>Present</span>
+                            </td>
+                            <td>
+                              <span data-bind="text: present"></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <span>Registration</span>
+                            </td>
+                            <td>
+                              <span data-bind="text: registration"></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <span>Stock reference</span>
+                            </td>
+                            <td>
+                              <span data-bind="text: stock_reference"></span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <span>Url</span>
+                            </td>
+                            <td>
+                              <span data-bind="text: url"></span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
-                </ul>
+                </div>
               </div>
             </div>
           </div>

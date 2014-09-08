@@ -2,22 +2,18 @@ window.ArnoldClark ||= {}
 
 class ArnoldClark.ImageModel
   constructor: (data) ->
-    @present = data.present
-    @url = data.url
-    @image_size = data.image_size
     @camera_angle = data.camera_angle
-
-  thumbnail: ->
-    @image_size == "350"
-
-  mainUrl: ->
-    console.log @url
-    @url.replace /350/, 800
+    @image_size = data.image_size
+    @obfuscated_key = data.obfuscated_key
+    @present = data.present
+    @registration = data.registration
+    @stock_reference = data.stock_reference
+    @url = data.url
 
 
 class ArnoldClark.ImageManagerModel
   IMAGE_API_URL: "http://localhost:3001/api/v1/images"
-  
+
   constructor: ->
     @images = ko.observableArray []
     @registration = ko.observable()
@@ -32,7 +28,7 @@ class ArnoldClark.ImageManagerModel
       ""
     else if @status() == "Loading images..."
       "alert-warning"
-    else if @status() == "Loaded #{@images().length} images"
+    else if @status() == "Loaded #{@presentImages().length} of #{@images().length} images"
       "alert-success"
     else
       "alert-danger"
@@ -43,7 +39,7 @@ class ArnoldClark.ImageManagerModel
   addImages: (images_data) ->
     for image_data in images_data
       image = new ArnoldClark.ImageModel(image_data)
-      @addImage image 
+      @addImage image
 
   loadImages: (form_element) =>
     @clearImages()
@@ -51,13 +47,16 @@ class ArnoldClark.ImageManagerModel
     form_data = { registration: @registration(), stock_reference: @stock_reference() }
 
     $.getJSON(@IMAGE_API_URL, form_data, (data) =>
-      @status "Loaded #{data.images.length} images"
       @addImages data.images
+      @status "Loaded #{@presentImages().length} of #{@images().length} images"
     ).fail =>
       @status "Error loading images"
-    
+
   clearImages: ->
     @images []
+
+  presentImages: ->
+    @images().filter (image) -> image.present
 
 class ArnoldClark.Home extends ArnoldClark.Base
   constructor: ->
