@@ -3,10 +3,10 @@ class IndexPage
 
   page_url '/'
 
-  div :header, :class => "header"
+  div :header, :class => "navbar-fixed-top"
   div :jumbotron, :class => "jumbotron"
-  div :entry_form, :class => "entry_form"
-  div :gallery, :class => "gallery"
+  div :entry_form, :class => "entry-form"
+  div :gallery, :class => "image-gallery"
   # text_field :email, :id    => "user_email"
   # text_field :password, :id => "user_password"
   # button :login_btn, :name  => "commit"
